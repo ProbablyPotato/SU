@@ -2,16 +2,21 @@ import logging
 import os
 import discord
 import asyncio
-
+import random
+from collections import defaultdict
 
 intents = discord.Intents.default()
 intents.message_content = True
+intents.guilds = True
+intents.members = True
 client = discord.Client(intents=intents)
 
 # Set up logging for the bot
 logging.basicConfig(level=logging.INFO)
 
 TOKEN = os.getenv("DISCORD_TOKEN")
+IMAGE_FOLDER = './images'  # Local folder with images
+
 
 # If token is missing, exit
 if not TOKEN:
@@ -62,3 +67,8 @@ if __name__ == '__main__':
         client.run(TOKEN)
     except Exception as e:
         logging.error(f"Error while trying to start the bot: {e}")
+
+
+
+# Start running chicken hunt
+
