@@ -159,3 +159,61 @@ async def clear_scores(ctx):
 async def clear_scores_error(ctx, error):
     if isinstance(error, commands.MissingPermissions):
         await ctx.send("❌ You don't have permission to do that.")
+
+
+
+
+# --- CONFIGURE TIMES HERE ---
+HIDE_TIME = time(21, 0, 0)   # 21:00 (9 PM)
+SHOW_TIME = time(7, 0, 0)    # 07:00 (7 AM)
+
+# Which role to modify (set after bot starts)
+target_role = discord.utils.get(interaction.guild.roles, name="@everyone")
+
+
+@bot.event
+async def on_ready():
+  check_schedule.start()
+
+
+@bot.command()
+@commands.has_permissions(manage_roles=True)
+async def setrole(ctx, role: discord.Role):
+    """
+    Set the target role for scheduled channel view changes.
+    Usage: !setrole @Role
+    """
+    global target_role
+    target_role = role
+    await ctx.send(f"🎯 Scheduled role set to {role.mention}")
+
+
+@tasks.loop(minutes=1)
+async def check_schedule():
+    """Runs every minute to check if we need to toggle permissions."""
+    global target_role
+    if not target_role:
+        return  # no role selected yet
+
+    now = datetime.now().time()
+
+    # Check if current time matches hide/show schedule
+    if now.hour == HIDE_TIME.hour and now.minute == HIDE_TIME.minute:
+        await set_view_for_all(False)
+
+    elif now.hour == SHOW_TIME.hour and now.minute == SHOW_TIME.minute:
+        await set_view_for_all(True)
+
+
+async def set_view_for_all(allow: bool):
+    """Helper to update all channels for the target role."""
+    guilds = bot.guilds
+    for guild in guilds:
+        role = discord.utils.get(guild.roles, id=target_role.id)
+        if role:
+            for channel in guild.channels:
+                overwrite = channel.overwrites_for(role)
+                overwrite.view_channel = allow
+                await channel.set_permissions(role, overwrite=overwrite)
+
+    print(f"🔄 Updated 'View Channel' for {target_role} → {allow}")
