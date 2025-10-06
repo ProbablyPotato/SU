@@ -16,7 +16,7 @@ async def remove_role():
     apply_role = guild.get_role(CLOSED_ROLE_ID)
     usual_role = guild.get_role(STANDARD_ROLE_ID)
 
-   for member in guild.members:
+    for member in guild.members:
         if usual_role in member.roles and apply_role in member.roles:
             await member.remove_role(apply_role)
 
