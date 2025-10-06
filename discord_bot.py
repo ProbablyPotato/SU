@@ -6,7 +6,6 @@ import random
 import close_server
 from collections import defaultdict
 from datetime import datetime, timedelta
-from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
 intents = discord.Intents.default()
 intents.message_content = True
