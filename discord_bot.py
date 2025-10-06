@@ -31,7 +31,7 @@ APPLY_TIME = '22:00'  # 10 PM
 REMOVE_TIME = '07:00'  # 7 AM
 
 # run the function to begin opening/closing the server daily
-async def example(ctx):
+async def on_ready(ctx):
     await ctx.send("successful")
 
 client.run(TOKEN)
