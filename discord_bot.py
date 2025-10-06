@@ -27,8 +27,8 @@ CLOSED_ROLE_ID = 'server-closed'
 STANDARD_ROLE_ID = 'members'
 
 # Set the times when server should shut down and reopen
-APPLY_TIME = '22:00'  # 10 PM
-REMOVE_TIME = '07:00'  # 7 AM
+APPLY_TIME = '15:00'  # 10 PM
+REMOVE_TIME = '15:30'  # 7 AM
 
 client.run(TOKEN)
 
