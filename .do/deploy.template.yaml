@@ -1,12 +1,12 @@
 spec:
-  name: template-discord-bot-worker
+  name: the-youthwork-bot
 
   workers:
   - name: worker
     environment_slug: python
     git:
       branch: main
-      repo_clone_url: https://github.com/digitalocean/template-discord-bot-worker.git
+      repo_clone_url: https://github.com/probablypotato/su.git
     source_dir: /
     build_command: "pip install -r requirements.txt"
     run_command: "python discord_bot.py"
