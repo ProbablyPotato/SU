@@ -24,7 +24,7 @@ async def remove_role():
 
 
 
-async def on_ready(ctx):
+async def start_schedule(ctx):
     print(f'{client.user.name} has connected to Discord!')
     # Set up the scheduler to run the functions at the specified times
     scheduler = AsyncIOScheduler()
