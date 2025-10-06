@@ -32,6 +32,6 @@ REMOVE_TIME = '17:30'  # 7 AM
 client.run(TOKEN)
 
 # run the function to begin opening/closing the server daily
-async def on_ready(ctx):
+on_ready(ctx):
     await ctx.send("successful")
 
