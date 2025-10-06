@@ -25,7 +25,7 @@ async def remove_role():
 
 
 async def start_schedule(ctx):
-    print(f'{client.user.name} has connected to Discord!')
+    print(f'Bot scheduler has been triggered!')
     # Set up the scheduler to run the functions at the specified times
     scheduler = AsyncIOScheduler()
     scheduler.add_job(apply_role, 'cron', hour=APPLY_TIME.split(':')[0], minute=APPLY_TIME.split(':')[1])
