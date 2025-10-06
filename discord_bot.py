@@ -3,6 +3,7 @@ import os
 import discord
 import asyncio
 import random
+import close_server
 from collections import defaultdict
 from datetime import datetime, timedelta
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
@@ -18,12 +19,19 @@ logging.basicConfig(level=logging.INFO)
 
 TOKEN = os.getenv("DISCORD_TOKEN")
 
-# Replace these with your own bot token and the IDs of the roles you want to manage
-BOT_TOKEN = os.getenv("DISCORD_TOKEN")
+# set parameters to close the server overnight: CLOSED_ROLE_ID is applied to everyone who is routinely in the STANDARD_ROLE_ID role, and then removed again in the morning. 
+# times are definable below.
+
+# IDs of the roles you want to manage
 CLOSED_ROLE_ID = 'server-closed'
 STANDARD_ROLE_ID = 'members'
 
-# Set the times when the role should be applied and removed
+# Set the times when server should shut down and reopen
 APPLY_TIME = '22:00'  # 10 PM
 REMOVE_TIME = '07:00'  # 7 AM
 
+# run the function to begin opening/closing the server daily
+async def example(ctx):
+    await ctx.send("successful")
+
+client.run(TOKEN)
