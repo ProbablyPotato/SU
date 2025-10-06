@@ -29,8 +29,7 @@ scheduler = AsyncIOScheduler()
 scheduler.add_job(apply_role, 'cron', hour=APPLY_TIME.split(':')[0], minute=APPLY_TIME.split(':')[1])
 scheduler.add_job(remove_role, 'cron', hour=REMOVE_TIME.split(':')[0], minute=REMOVE_TIME.split(':')[1])
 
-@client.event
-async def on_ready():
+async def on_ready(ctx):
     print(f'{client.user.name} has connected to Discord!')
     scheduler.start()
 
