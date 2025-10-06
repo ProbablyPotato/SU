@@ -3,7 +3,7 @@ import os
 import discord
 import asyncio
 import random
-import close_server
+from close_server import *
 from collections import defaultdict
 from datetime import datetime, timedelta
 
