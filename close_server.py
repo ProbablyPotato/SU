@@ -34,4 +34,3 @@ async def on_ready():
     print(f'{client.user.name} has connected to Discord!')
     scheduler.start()
 
-client.run(BOT_TOKEN)
