@@ -36,4 +36,3 @@ client.run(TOKEN)
 async def on_ready(ctx):
     await ctx.send("successful")
 
-client.run(TOKEN)
