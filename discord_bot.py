@@ -33,7 +33,7 @@ REMOVE_TIME = '17:33'  # 7 AM
 @client.event
 async def on_ready():
     print(f"Is now running!")
-    start_schedule(ctx)
+    start_schedule()
 
 
 client.run(TOKEN)
