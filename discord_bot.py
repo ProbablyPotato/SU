@@ -26,14 +26,14 @@ CLOSED_ROLE_ID = 'server-closed'
 STANDARD_ROLE_ID = 'members'
 
 # Set the times when server should shut down and reopen
-APPLY_TIME = '17:31'  # 10 PM
+APPLY_TIME = '15:05'  # 10 PM
 REMOVE_TIME = '17:33'  # 7 AM
 
 # run the function to begin opening/closing the server daily
 @client.event
 async def on_ready():
     print(f"Is now running!")
-    start_schedule()
+    await start_schedule()
 
 
 client.run(TOKEN)
