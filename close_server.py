@@ -24,7 +24,7 @@ async def remove_role():
 
 
 
-async def start_schedule(ctx):
+async def start_schedule():
     print(f'Bot scheduler has been triggered!')
     # Set up the scheduler to run the functions at the specified times
     scheduler = AsyncIOScheduler()
