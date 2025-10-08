@@ -3,7 +3,7 @@ import os
 import discord
 import asyncio
 import random
-from close_server import *
+# from close_server import *
 from collections import defaultdict
 from datetime import datetime, timedelta
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
