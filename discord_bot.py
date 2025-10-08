@@ -63,7 +63,7 @@ async def apply_role():
 
 # Function to remove the role from all members
 async def remove_role():
-    guild = client.get_guild(guild_id)
+    guild = client.get_guild(GUILD_ID)
     
     apply_role = discord.utils.get(guild.roles, name=CLOSED_ROLE_NAME)
     usual_role = discord.utils.get(guild.roles, name=STANDARD_ROLE_NAME)
