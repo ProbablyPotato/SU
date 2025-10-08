@@ -36,7 +36,7 @@ async def on_ready():
     print(f"Is now running!")
     #create scheduler
     scheduler = AsyncIOScheduler()
-    await start_schedule()
+    await start_schedule(scheduler)
 
 
 client.run(TOKEN)
