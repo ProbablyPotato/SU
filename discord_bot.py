@@ -57,7 +57,7 @@ async def apply_role():
     
     for member in guild.members:
         if usual_role in member.roles and apply_role not in member.roles:
-            await member.add_role(apply_role)
+            await member.add_roles(apply_role)
 
     print(f"Applied role {apply_role.name} to all members with role {usual_role.name}")
 
@@ -70,7 +70,7 @@ async def remove_role():
 
     for member in guild.members:
         if usual_role in member.roles and apply_role in member.roles:
-            await member.remove_role(apply_role)
+            await member.remove_roles(apply_role)
 
     print(f"Removed role {apply_role.name} from all members")
 
