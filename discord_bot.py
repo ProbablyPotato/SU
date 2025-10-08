@@ -34,6 +34,8 @@ REMOVE_TIME = '17:33'  # 7 AM
 @client.event
 async def on_ready():
     print(f"Is now running!")
+    #create scheduler
+    scheduler = AsyncIOScheduler()
     await start_schedule()
 
 
