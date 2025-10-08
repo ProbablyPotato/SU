@@ -1,2 +1,2 @@
 discord.py==2.5.2
-apscheduler.py
+apscheduler.py==3.11.0
