@@ -24,7 +24,7 @@ async def remove_role():
 
 
 
-async def start_schedule():
+async def start_schedule(scheduler):
     print(f'Bot scheduler has been triggered!')
    
     # Set up the scheduler to run the functions at the specified times
