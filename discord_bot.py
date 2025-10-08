@@ -27,7 +27,7 @@ CLOSED_ROLE_ID = 'server-closed'
 STANDARD_ROLE_ID = 'members'
 
 # Set the times when server should shut down and reopen
-APPLY_TIME = '15:05'  # 10 PM
+APPLY_TIME = '13:05'  # 10 PM
 REMOVE_TIME = '17:33'  # 7 AM
 
 #create scheduler
