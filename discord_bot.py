@@ -49,6 +49,9 @@ async def on_ready():
 async def apply_role():
     guild = client.get_guild(GUILD_ID)
     # roles = guild.get_roles()
+    print(f" {guild}")
+    print(f" {guild.roles}")
+    
     apply_role = discord.utils.get(guild.roles, name=CLOSED_ROLE_NAME)
     usual_role = discord.utils.get(guild.roles, name=STANDARD_ROLE_NAME)
     
