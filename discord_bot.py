@@ -20,7 +20,7 @@ logging.basicConfig(level=logging.INFO)
 TOKEN = os.getenv("DISCORD_TOKEN")
 
 # this is a hard-coded guild ID presently
-GUILD_ID = 1106516033818329210
+GUILD_ID = 1354825369269829713
 
 # set parameters to close the server overnight: CLOSED_ROLE_ID is applied to everyone who is routinely in the STANDARD_ROLE_ID role, and then removed again in the morning. 
 # times are definable below.
@@ -31,7 +31,7 @@ STANDARD_ROLE_NAME = 'members'
 
 
 # Set the times when server should shut down and reopen
-APPLY_TIME = '13:07'  # 10 PM
+APPLY_TIME = '14:54'  # 10 PM
 REMOVE_TIME = '17:33'  # 7 AM
 
 #create scheduler
