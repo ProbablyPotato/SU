@@ -31,7 +31,7 @@ STANDARD_ROLE_NAME = 'members'
 
 
 # Set the times when server should shut down and reopen
-APPLY_TIME = '14:54'  # 10 PM
+APPLY_TIME = '15:35'  # 10 PM
 REMOVE_TIME = '17:33'  # 7 AM
 
 #create scheduler
