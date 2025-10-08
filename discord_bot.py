@@ -20,7 +20,7 @@ logging.basicConfig(level=logging.INFO)
 TOKEN = os.getenv("DISCORD_TOKEN")
 
 # this is a hard-coded guild ID presently
-GUILD_ID ='1106516033818329210'
+GUILD_ID = 1106516033818329210
 
 # set parameters to close the server overnight: CLOSED_ROLE_ID is applied to everyone who is routinely in the STANDARD_ROLE_ID role, and then removed again in the morning. 
 # times are definable below.
@@ -31,7 +31,7 @@ STANDARD_ROLE_NAME = 'members'
 
 
 # Set the times when server should shut down and reopen
-APPLY_TIME = '12:33'  # 10 PM
+APPLY_TIME = '13:00'  # 10 PM
 REMOVE_TIME = '17:33'  # 7 AM
 
 #create scheduler
@@ -48,7 +48,7 @@ async def on_ready():
 # Function to apply the role to all members with the specified role
 async def apply_role():
     guild = client.get_guild(GUILD_ID)
-    
+    # roles = guild.get_roles()
     apply_role = discord.utils.get(guild.roles, name=CLOSED_ROLE_NAME)
     usual_role = discord.utils.get(guild.roles, name=STANDARD_ROLE_NAME)
     
@@ -61,6 +61,7 @@ async def apply_role():
 # Function to remove the role from all members
 async def remove_role():
     guild = client.get_guild(guild_id)
+    
     apply_role = discord.utils.get(guild.roles, name=CLOSED_ROLE_NAME)
     usual_role = discord.utils.get(guild.roles, name=STANDARD_ROLE_NAME)
 
