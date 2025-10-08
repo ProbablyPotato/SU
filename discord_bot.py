@@ -19,6 +19,9 @@ logging.basicConfig(level=logging.INFO)
 
 TOKEN = os.getenv("DISCORD_TOKEN")
 
+# this is a hard-coded guild ID presently
+GUILD_ID ='1106516033818329210'
+
 # set parameters to close the server overnight: CLOSED_ROLE_ID is applied to everyone who is routinely in the STANDARD_ROLE_ID role, and then removed again in the morning. 
 # times are definable below.
 
@@ -44,7 +47,7 @@ async def on_ready():
 
 # Function to apply the role to all members with the specified role
 async def apply_role():
-    guild = client.get_guild(guild_id)
+    guild = client.get_guild(GUILD_ID)
     
     apply_role = discord.utils.get(guild.roles, name=CLOSED_ROLE_NAME)
     usual_role = discord.utils.get(guild.roles, name=STANDARD_ROLE_NAME)
