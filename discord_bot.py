@@ -30,9 +30,6 @@ STANDARD_ROLE_ID = 'members'
 APPLY_TIME = '15:05'  # 10 PM
 REMOVE_TIME = '17:33'  # 7 AM
 
-#create scheduler
-scheduler = AsyncIOScheduler()
-
 # run the function to begin opening/closing the server daily
 @client.event
 async def on_ready():
