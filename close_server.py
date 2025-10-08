@@ -26,6 +26,8 @@ async def remove_role():
 
 async def start_schedule():
     print(f'Bot scheduler has been triggered!')
+    #create scheduler
+    scheduler = AsyncIOScheduler()
     # Set up the scheduler to run the functions at the specified times
     scheduler.add_job(apply_role, 'cron', hour=APPLY_TIME.split(':')[0], minute=APPLY_TIME.split(':')[1])
     scheduler.add_job(remove_role, 'cron', hour=REMOVE_TIME.split(':')[0], minute=REMOVE_TIME.split(':')[1])
