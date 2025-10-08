@@ -23,11 +23,12 @@ TOKEN = os.getenv("DISCORD_TOKEN")
 # times are definable below.
 
 # IDs of the roles you want to manage
-CLOSED_ROLE_ID = 'server-closed'
-STANDARD_ROLE_ID = 'members'
+CLOSED_ROLE_NAME = 'server-closed'
+STANDARD_ROLE_NAME = 'members'
+
 
 # Set the times when server should shut down and reopen
-APPLY_TIME = '13:05'  # 10 PM
+APPLY_TIME = '12:58'  # 10 PM
 REMOVE_TIME = '17:33'  # 7 AM
 
 #create scheduler
@@ -44,9 +45,10 @@ async def on_ready():
 # Function to apply the role to all members with the specified role
 async def apply_role():
     guild = client.get_guild(guild_id)
-    apply_role = guild.get_role(CLOSED_ROLE_ID)
-    usual_role = guild.get_role(STANDARD_ROLE_ID)
-
+    
+    apply_role = discord.utils.get(guild.roles, name=CLOSED_ROLE_NAME)
+    usual_role = discord.utils.get(guild.roles, name=STANDARD_ROLE_NAME)
+    
     for member in guild.members:
         if usual_role in member.roles and apply_role not in member.roles:
             await member.add_role(apply_role)
@@ -56,8 +58,8 @@ async def apply_role():
 # Function to remove the role from all members
 async def remove_role():
     guild = client.get_guild(guild_id)
-    apply_role = guild.get_role(CLOSED_ROLE_ID)
-    usual_role = guild.get_role(STANDARD_ROLE_ID)
+    apply_role = discord.utils.get(guild.roles, name=CLOSED_ROLE_NAME)
+    usual_role = discord.utils.get(guild.roles, name=STANDARD_ROLE_NAME)
 
     for member in guild.members:
         if usual_role in member.roles and apply_role in member.roles:
